@@ -1,0 +1,25 @@
+name: Create Dist
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Buid on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest, ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn dist
+      - uses: actions/upload-artifact@master
+        with:
+          name: pushpin-${{ matrix.os }}
+          path: out
