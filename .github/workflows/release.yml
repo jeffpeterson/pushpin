@@ -2,8 +2,10 @@ name: Package App
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - 'v*'
+    paths:
+      - 'src/**'
 
 jobs:
   build:
@@ -24,7 +26,6 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          draft: ${{ !startsWith(github.ref, 'refs/tags/') }}
           files: out/PushPin*.{dmg,exe,AppImage}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
