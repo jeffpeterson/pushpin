@@ -4,12 +4,11 @@ on:
   push:
     tags:
       - 'v*'
-    paths:
-      - 'src/**'
 
 jobs:
   build:
     name: Package for ${{ matrix.os }}
+    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
