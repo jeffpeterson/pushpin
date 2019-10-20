@@ -25,6 +25,9 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          files: out/PushPin*.{dmg,exe,AppImage}
+          files: |
+            out/*.dmg
+            out/*.exe
+            out/*.AppImage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
