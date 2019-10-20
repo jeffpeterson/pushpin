@@ -3,7 +3,7 @@ import { ComponentType } from 'react'
 import { Handle } from 'hypermerge'
 import { HypermergeUrl, createDocumentLink } from './ShareLink'
 
-const log = Debug('pushpin:content-types')
+const log = Debug('pushpin:ContentTypes')
 
 // type Component = ComponentType<ContentProps>
 // TODO: This should be ComponentType<ContentProps>, but it breaks with
