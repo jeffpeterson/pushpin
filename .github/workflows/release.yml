@@ -1,4 +1,4 @@
-name: Package App
+name: Create Release Builds
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Package for ${{ matrix.os }}
+    name: Build for ${{ matrix.os }}
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ${{ matrix.os }}
     strategy:
